@@ -3,6 +3,10 @@
 # İlk Çalıştırma
 
 ## Sunucu
+nodemon yüklemek için
+```
+npm i -g nodemon
+```
 ```
 cd server
 npm i
