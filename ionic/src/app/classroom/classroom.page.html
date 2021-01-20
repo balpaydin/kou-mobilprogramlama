@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sınıflarım</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="primary" fill="solid" (click)="openModal()">
+          <ion-icon slot="start" name="add"></ion-icon>Sınıf Oluştur
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngFor="let classroom of classRooms" (click)="click(classroom._id)" >
+    <ion-card-header>
+      <ion-card-subtitle>{{classroom.lessonName}}</ion-card-subtitle>
+      <ion-card-title>
+        {{classroom.name}}
+      </ion-card-title>
+
+    </ion-card-header>
+  </ion-card>
+  <hr/>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Kayıtlı Sınıflarım</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngFor="let classroom of registerClassRoom" >
+    <ion-card-header>
+      <ion-card-subtitle>{{classroom.lessonName}}</ion-card-subtitle>
+      <ion-card-title>
+        {{classroom.name}}
+      </ion-card-title>
+
+    </ion-card-header>
+  </ion-card>
+</ion-content>

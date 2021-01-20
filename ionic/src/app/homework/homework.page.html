@@ -1,0 +1,14 @@
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ödevlerim</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngFor="let h of homeworks" (click)="openAddResModal(h._id)" >
+    <ion-card-header>
+      <ion-card-title>
+        {{h.name}}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

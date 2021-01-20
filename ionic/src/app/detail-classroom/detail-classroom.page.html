@@ -1,0 +1,56 @@
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>   
+      <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button color="primary" fill="solid" (click)="openModal(classroom._id)">
+          <ion-icon slot="start" name="add"></ion-icon>Öğrenci Ekle
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{classroom ? classroom.lessonName : "Yükleniyor..."}}</ion-card-subtitle>
+      <ion-card-title>{{classroom ? classroom.name : "Yükleniyor..."}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{classroom ? classroom.description : "Yükleniyor..."}}
+    </ion-card-content>
+  </ion-card>
+
+  <hr/>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <span>Ödevler</span>
+        <ion-button color="primary" style="float: right;font-size: small;" fill="outline" (click)="openHMModal(classroom._id)">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>      
+    </ion-card-title>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+        
+      <ion-list *ngIf="homeworks && homeworks.length">
+        <ion-item *ngFor="let h of homeworks" >
+          <ion-label>{{h.name}}</ion-label>
+          <ion-icon (click)="homeworkInfo(h._id)" name="information-circle-outline" color="primary"></ion-icon>
+          <ion-icon (click)="removeHomework(h._id)" name="close" color="danger"></ion-icon>
+        </ion-item>
+      </ion-list>
+      <ion-item *ngIf="!homeworks || !homeworks.length">
+        <ion-label>
+          <i>Ödev Bulunamadi</i>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+</ion-content>

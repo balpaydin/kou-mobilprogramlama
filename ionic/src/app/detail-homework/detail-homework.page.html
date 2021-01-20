@@ -1,0 +1,50 @@
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>   
+      <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{homework ? homework.name : "Yükleniyor..."}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{homework ? homework.body : "Yükleniyor..."}}
+    </ion-card-content>
+  </ion-card>
+
+  <hr/>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <span>Cevaplar</span>      
+    </ion-card-title>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+        
+      <ion-list *ngIf="responses && responses.length">
+        <ion-item>
+          <ion-label><strong>Kullanıcı</strong></ion-label>
+          <ion-label><strong>Cevap</strong></ion-label>
+        </ion-item>
+        <ion-item *ngFor="let r of responses" >
+          <ion-label>{{r.user.username}}</ion-label>
+          <ion-label>{{r.response}}</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-item *ngIf="!responses || !responses.length">
+        <ion-label>
+          <i>Cevaplar Bulunamadi</i>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+   
+
+</ion-content>

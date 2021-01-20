@@ -1,0 +1,7 @@
+{
+  "name": "odevKontrolAngular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
